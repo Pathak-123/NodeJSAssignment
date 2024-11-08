@@ -43,7 +43,7 @@ const registerUser = async (req, res) => {
       });
       const token = jwt.sign(
         {
-          _id: user._id,email: user.email
+          _id: user._id,email: user.email,role:user.role
         },
         process.env.TOKEN_SECRET
       );
@@ -96,7 +96,7 @@ const registerUser = async (req, res) => {
         });
       }
   
-      const token = jwt.sign({ _id: user._id,email: user.email }, process.env.TOKEN_SECRET);
+      const token = jwt.sign({ _id: user._id,email: user.email,role:user.role }, process.env.TOKEN_SECRET);
       res.json({
          success: true,
         message: `Welcome, ${user.name}`,
